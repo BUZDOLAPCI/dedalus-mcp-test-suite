@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MCP Test Suite Configuration",
+  "description": "Configuration for testing Dedalus MCP servers",
+  "type": "object",
+  "required": ["servers"],
+  "properties": {
+    "servers": {
+      "type": "array",
+      "description": "List of MCP servers to test",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "mcpServer", "tests"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the server"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable name of the server"
+          },
+          "mcpServer": {
+            "type": "string",
+            "description": "MCP server identifier (e.g., 'owner/server-name')"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether to run tests for this server",
+            "default": true
+          },
+          "tests": {
+            "type": "array",
+            "description": "List of tests to run for this server",
+            "items": {
+              "type": "object",
+              "required": ["name", "input"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the test"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description of what the test validates"
+                },
+                "input": {
+                  "type": "string",
+                  "description": "The prompt to send to the agent"
+                },
+                "expectedToolPattern": {
+                  "type": "string",
+                  "description": "Regex pattern to match expected tool names"
+                },
+                "expectedOutputPattern": {
+                  "type": "string",
+                  "description": "Regex pattern to match expected output"
+                },
+                "timeout": {
+                  "type": "number",
+                  "description": "Timeout in milliseconds for this test"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "description": "Global configuration options",
+      "properties": {
+        "model": {
+          "type": "string",
+          "description": "Default model to use for tests",
+          "default": "openai/gpt-4o-mini"
+        },
+        "maxSteps": {
+          "type": "number",
+          "description": "Maximum steps for agent execution",
+          "default": 5
+        },
+        "defaultTimeout": {
+          "type": "number",
+          "description": "Default timeout in milliseconds",
+          "default": 60000
+        },
+        "verbose": {
+          "type": "boolean",
+          "description": "Enable verbose output",
+          "default": false
+        }
+      }
+    }
+  }
+}

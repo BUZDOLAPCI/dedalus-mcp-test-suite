@@ -1,0 +1,70 @@
+{
+  "$schema": "./servers.schema.json",
+  "servers": [
+    {
+      "id": "brave-search",
+      "name": "Brave Search MCP",
+      "mcpServer": "windsor/brave-search-mcp",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Web search",
+          "description": "Test basic web search functionality",
+          "input": "Search the web for the latest news about TypeScript 5.0",
+          "expectedOutputPattern": "typescript|javascript|programming",
+          "timeout": 60000
+        }
+      ]
+    },
+    {
+      "id": "marketplace-crawler-ts",
+      "name": "Dedalus Marketplace Crawler (TypeScript)",
+      "mcpServer": "meanerbeaver/dedalus-marketplace-crawler-ts",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Search MCP servers",
+          "description": "Test searching for MCP servers in the marketplace",
+          "input": "Search for weather-related MCP servers in the Dedalus marketplace",
+          "expectedToolPattern": "search|find|query",
+          "timeout": 90000
+        },
+        {
+          "name": "List MCP servers",
+          "description": "Test listing available MCP servers",
+          "input": "List the top 5 MCP servers available in the Dedalus marketplace",
+          "expectedToolPattern": "list|get|fetch",
+          "timeout": 90000
+        }
+      ]
+    },
+    {
+      "id": "marketplace-crawler",
+      "name": "Dedalus Marketplace Crawler (Python)",
+      "mcpServer": "meanerbeaver/dedalus-marketplace-crawler",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Search MCP servers",
+          "description": "Test searching for MCP servers in the marketplace",
+          "input": "Search for search-related MCP servers in the Dedalus marketplace",
+          "expectedToolPattern": "search|find|query",
+          "timeout": 90000
+        },
+        {
+          "name": "Get server details",
+          "description": "Test getting details about a specific MCP server",
+          "input": "Get details about the brave-search MCP server from the Dedalus marketplace",
+          "expectedToolPattern": "get|details|info",
+          "timeout": 90000
+        }
+      ]
+    }
+  ],
+  "config": {
+    "model": "openai/gpt-4o-mini",
+    "maxSteps": 5,
+    "defaultTimeout": 120000,
+    "verbose": true
+  }
+}

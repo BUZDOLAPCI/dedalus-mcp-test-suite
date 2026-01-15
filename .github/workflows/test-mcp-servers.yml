@@ -1,0 +1,77 @@
+name: Test MCP Servers
+
+on:
+  # Run daily at 8:00 AM UTC
+  schedule:
+    - cron: '0 8 * * *'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+  # Run on push to main
+  push:
+    branches: [main]
+
+  # Run on PRs
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run MCP Server Tests
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -v
+        continue-on-error: true
+        id: test
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ github.run_number }}
+          path: |
+            dist/
+            servers.json
+          retention-days: 30
+
+      - name: Create summary
+        if: always()
+        run: |
+          echo "## MCP Server Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Run Date:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.test.outcome }}" == "success" ]; then
+            echo "✅ **Status:** All tests passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status:** Some tests failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Tested Servers" >> $GITHUB_STEP_SUMMARY
+          echo "- windsor/brave-search-mcp" >> $GITHUB_STEP_SUMMARY
+          echo "- meanerbeaver/dedalus-marketplace-crawler-ts" >> $GITHUB_STEP_SUMMARY
+          echo "- meanerbeaver/dedalus-marketplace-crawler" >> $GITHUB_STEP_SUMMARY
+
+      - name: Check test outcome
+        if: steps.test.outcome == 'failure'
+        run: |
+          echo "::warning::Some MCP server tests failed. Check the logs for details."
