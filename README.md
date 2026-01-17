@@ -95,8 +95,26 @@ Exit code is `0` if all tests pass, `1` if any fail.
 
 ## Currently Configured Servers
 
+### Third-Party Servers
+- `windsor/brave-search-mcp` - Web search via Brave
 - `meanerbeaver/dedalus-marketplace-crawler-ts` - TypeScript marketplace crawler
 - `meanerbeaver/dedalus-marketplace-crawler` - Python marketplace crawler
+
+### Dedalus MCP Suite (14 servers)
+- `dedalus/sitemap-scout` - Discover and enumerate sitemaps
+- `dedalus/webpage-extract` - Extract readable content from webpages
+- `dedalus/pdf-parse` - Parse PDFs into text and structure
+- `dedalus/openapi-generate` - Parse OpenAPI specs and generate MCP tools
+- `dedalus/json-validate` - Validate and repair JSON against schemas
+- `dedalus/osv-audit` - Query OSV for dependency vulnerabilities
+- `dedalus/sbom-tools` - Create and manage SBOMs
+- `dedalus/license-check` - Detect and check license compatibility
+- `dedalus/package-intel` - Query package registry metadata
+- `dedalus/git-repo-brief` - Generate briefs for GitHub repos
+- `dedalus/dns-intel` - Domain intel via RDAP, DNS, and CT logs
+- `dedalus/web-stack-scan` - Fingerprint website tech stacks
+- `dedalus/osm-tools` - OpenStreetMap geocoding, POI, and routing
+- `dedalus/image-forensics` - Image metadata and forensics analysis
 
 ## Development
 

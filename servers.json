@@ -28,35 +28,314 @@
           "input": "Search for weather-related MCP servers in the Dedalus marketplace",
           "expectedToolPattern": "search|find|query",
           "timeout": 90000
-        },
-        {
-          "name": "List MCP servers",
-          "description": "Test listing available MCP servers",
-          "input": "List the top 5 MCP servers available in the Dedalus marketplace",
-          "expectedToolPattern": "list|get|fetch",
-          "timeout": 90000
         }
       ]
     },
     {
-      "id": "marketplace-crawler",
-      "name": "Dedalus Marketplace Crawler (Python)",
-      "mcpServer": "meanerbeaver/dedalus-marketplace-crawler",
+      "id": "sitemap-scout",
+      "name": "Sitemap Scout MCP",
+      "mcpServer": "dedalus/sitemap-scout",
       "enabled": true,
       "tests": [
         {
-          "name": "Search MCP servers",
-          "description": "Test searching for MCP servers in the marketplace",
-          "input": "Search for search-related MCP servers in the Dedalus marketplace",
-          "expectedToolPattern": "search|find|query",
-          "timeout": 90000
+          "name": "Discover sitemaps",
+          "description": "Test discovering sitemaps for a website",
+          "input": "Discover all sitemaps for github.com",
+          "expectedToolPattern": "discover_sitemaps",
+          "timeout": 30000
         },
         {
-          "name": "Get server details",
-          "description": "Test getting details about a specific MCP server",
-          "input": "Get details about the brave-search MCP server from the Dedalus marketplace",
-          "expectedToolPattern": "get|details|info",
-          "timeout": 90000
+          "name": "List sitemap URLs",
+          "description": "Test listing URLs from a sitemap",
+          "input": "List the first 10 URLs from the sitemap at https://www.google.com/sitemap.xml",
+          "expectedToolPattern": "list_sitemap_urls",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "webpage-extract",
+      "name": "Webpage Extract MCP",
+      "mcpServer": "dedalus/webpage-extract",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Extract readable content",
+          "description": "Test extracting readable markdown from a webpage",
+          "input": "Extract the main content from https://example.com as markdown",
+          "expectedToolPattern": "extract_readable_markdown",
+          "timeout": 30000
+        },
+        {
+          "name": "Extract metadata",
+          "description": "Test extracting metadata from a webpage",
+          "input": "Get the metadata (title, description, open graph) from https://github.com",
+          "expectedToolPattern": "extract_metadata",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "pdf-parse",
+      "name": "PDF Parse MCP",
+      "mcpServer": "dedalus/pdf-parse",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Extract PDF text",
+          "description": "Test extracting text from a PDF",
+          "input": "Extract all text from a sample PDF document",
+          "expectedToolPattern": "pdf_to_text",
+          "timeout": 60000
+        },
+        {
+          "name": "Extract sections",
+          "description": "Test extracting sections from PDF text",
+          "input": "Identify the sections and headings in the extracted PDF text",
+          "expectedToolPattern": "extract_sections",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "openapi-generate",
+      "name": "OpenAPI Generate MCP",
+      "mcpServer": "dedalus/openapi-generate",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Parse OpenAPI spec",
+          "description": "Test parsing an OpenAPI specification",
+          "input": "Parse the OpenAPI spec from https://petstore3.swagger.io/api/v3/openapi.json",
+          "expectedToolPattern": "openapi_parse",
+          "timeout": 30000
+        },
+        {
+          "name": "Generate tool schemas",
+          "description": "Test generating MCP tool schemas from parsed OpenAPI",
+          "input": "Generate MCP tool schemas from a parsed OpenAPI specification",
+          "expectedToolPattern": "generate_tool_schemas",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "json-validate",
+      "name": "JSON Validate MCP",
+      "mcpServer": "dedalus/json-validate",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Validate JSON",
+          "description": "Test validating JSON against a schema",
+          "input": "Validate {\"name\": \"test\", \"age\": 25} against a schema requiring name (string) and age (number)",
+          "expectedToolPattern": "validate_json",
+          "timeout": 30000
+        },
+        {
+          "name": "Repair JSON",
+          "description": "Test repairing invalid JSON",
+          "input": "Repair the invalid JSON: {name: 'test', age: '25',} to match a schema requiring name (string) and age (number)",
+          "expectedToolPattern": "repair_json",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "osv-audit",
+      "name": "OSV Audit MCP",
+      "mcpServer": "dedalus/osv-audit",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Parse dependencies",
+          "description": "Test parsing dependency files",
+          "input": "Parse this package.json dependencies: {\"lodash\": \"4.17.20\", \"express\": \"4.17.1\"}",
+          "expectedToolPattern": "parse_dependencies",
+          "timeout": 30000
+        },
+        {
+          "name": "Query OSV",
+          "description": "Test querying OSV for vulnerabilities",
+          "input": "Check if lodash version 4.17.20 has any known vulnerabilities",
+          "expectedToolPattern": "osv_query",
+          "timeout": 60000
+        }
+      ]
+    },
+    {
+      "id": "sbom-tools",
+      "name": "SBOM Tools MCP",
+      "mcpServer": "dedalus/sbom-tools",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Create SBOM",
+          "description": "Test creating an SBOM from dependencies",
+          "input": "Create a CycloneDX SBOM from these dependencies: lodash 4.17.21 (npm), express 4.18.2 (npm)",
+          "expectedToolPattern": "sbom_from_dependencies",
+          "timeout": 30000
+        },
+        {
+          "name": "Diff SBOMs",
+          "description": "Test comparing two SBOMs",
+          "input": "Compare two SBOMs to find added, removed, and changed components",
+          "expectedToolPattern": "sbom_diff",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "license-check",
+      "name": "License Check MCP",
+      "mcpServer": "dedalus/license-check",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Detect licenses",
+          "description": "Test detecting licenses from dependencies",
+          "input": "Detect the licenses for: lodash (MIT), express (MIT), react (MIT)",
+          "expectedToolPattern": "detect_licenses",
+          "timeout": 30000
+        },
+        {
+          "name": "Check compatibility",
+          "description": "Test checking license compatibility",
+          "input": "Check if MIT, Apache-2.0, and BSD-3-Clause licenses are compatible with a policy that only allows permissive licenses",
+          "expectedToolPattern": "check_compatibility",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "package-intel",
+      "name": "Package Intel MCP",
+      "mcpServer": "dedalus/package-intel",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Package summary",
+          "description": "Test getting package summary from npm",
+          "input": "Get summary information for the lodash package on npm",
+          "expectedToolPattern": "package_summary",
+          "timeout": 30000
+        },
+        {
+          "name": "Maintenance signals",
+          "description": "Test getting maintenance signals",
+          "input": "What are the maintenance signals for the express package? Is it actively maintained?",
+          "expectedToolPattern": "maintenance_signals",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "git-repo-brief",
+      "name": "Git Repo Brief MCP",
+      "mcpServer": "dedalus/git-repo-brief",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Repo overview",
+          "description": "Test getting GitHub repo overview",
+          "input": "Get an overview of the repository at https://github.com/facebook/react",
+          "expectedToolPattern": "repo_overview",
+          "timeout": 30000
+        },
+        {
+          "name": "Activity snapshot",
+          "description": "Test getting repo activity snapshot",
+          "input": "Get the recent activity snapshot for https://github.com/microsoft/TypeScript",
+          "expectedToolPattern": "activity_snapshot",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "dns-intel",
+      "name": "DNS Intel MCP",
+      "mcpServer": "dedalus/dns-intel",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "DNS query",
+          "description": "Test DNS record lookup",
+          "input": "Look up the A records for google.com",
+          "expectedToolPattern": "dns_query",
+          "timeout": 30000
+        },
+        {
+          "name": "RDAP lookup",
+          "description": "Test RDAP domain lookup",
+          "input": "Get the RDAP registration info for example.com",
+          "expectedToolPattern": "rdap_lookup",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "web-stack-scan",
+      "name": "Web Stack Scan MCP",
+      "mcpServer": "dedalus/web-stack-scan",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Fingerprint website",
+          "description": "Test fingerprinting a website's tech stack",
+          "input": "Fingerprint the technology stack used by https://github.com",
+          "expectedToolPattern": "fingerprint",
+          "timeout": 30000
+        },
+        {
+          "name": "Detect analytics",
+          "description": "Test detecting analytics scripts",
+          "input": "Detect what analytics and tracking scripts are used on https://www.google.com",
+          "expectedToolPattern": "detect_analytics",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "osm-tools",
+      "name": "OSM Tools MCP",
+      "mcpServer": "dedalus/osm-tools",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Geocode address",
+          "description": "Test forward geocoding",
+          "input": "Geocode the address: 1600 Pennsylvania Avenue, Washington DC",
+          "expectedToolPattern": "geocode",
+          "timeout": 30000
+        },
+        {
+          "name": "POI search",
+          "description": "Test searching for points of interest",
+          "input": "Find restaurants within 1km of the coordinates 40.7128, -74.0060 (New York)",
+          "expectedToolPattern": "poi_search",
+          "timeout": 30000
+        }
+      ]
+    },
+    {
+      "id": "image-forensics",
+      "name": "Image Forensics MCP",
+      "mcpServer": "dedalus/image-forensics",
+      "enabled": true,
+      "tests": [
+        {
+          "name": "Image facts",
+          "description": "Test getting basic image facts",
+          "input": "Get the basic facts (format, dimensions, size) for an image",
+          "expectedToolPattern": "image_facts",
+          "timeout": 30000
+        },
+        {
+          "name": "Image hashes",
+          "description": "Test calculating image hashes",
+          "input": "Calculate the SHA-256 and perceptual hash for an image",
+          "expectedToolPattern": "image_hashes",
+          "timeout": 30000
         }
       ]
     }

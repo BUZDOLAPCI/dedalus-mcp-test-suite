@@ -86,10 +86,349 @@ jobs:
           echo "## Marketplace Crawler (Python)" >> $GITHUB_STEP_SUMMARY
           echo "**Server:** meanerbeaver/dedalus-marketplace-crawler" >> $GITHUB_STEP_SUMMARY
 
+  test-sitemap-scout:
+    name: Sitemap Scout MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/sitemap-scout
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s sitemap-scout -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Sitemap Scout MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/sitemap-scout" >> $GITHUB_STEP_SUMMARY
+
+  test-webpage-extract:
+    name: Webpage Extract MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/webpage-extract
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s webpage-extract -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Webpage Extract MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/webpage-extract" >> $GITHUB_STEP_SUMMARY
+
+  test-pdf-parse:
+    name: PDF Parse MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/pdf-parse
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s pdf-parse -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## PDF Parse MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/pdf-parse" >> $GITHUB_STEP_SUMMARY
+
+  test-openapi-generate:
+    name: OpenAPI Generate MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/openapi-generate
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s openapi-generate -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## OpenAPI Generate MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/openapi-generate" >> $GITHUB_STEP_SUMMARY
+
+  test-json-validate:
+    name: JSON Validate MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/json-validate
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s json-validate -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## JSON Validate MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/json-validate" >> $GITHUB_STEP_SUMMARY
+
+  test-osv-audit:
+    name: OSV Audit MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/osv-audit
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s osv-audit -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## OSV Audit MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/osv-audit" >> $GITHUB_STEP_SUMMARY
+
+  test-sbom-tools:
+    name: SBOM Tools MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/sbom-tools
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s sbom-tools -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## SBOM Tools MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/sbom-tools" >> $GITHUB_STEP_SUMMARY
+
+  test-license-check:
+    name: License Check MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/license-check
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s license-check -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## License Check MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/license-check" >> $GITHUB_STEP_SUMMARY
+
+  test-package-intel:
+    name: Package Intel MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/package-intel
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s package-intel -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Package Intel MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/package-intel" >> $GITHUB_STEP_SUMMARY
+
+  test-git-repo-brief:
+    name: Git Repo Brief MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/git-repo-brief
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s git-repo-brief -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Git Repo Brief MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/git-repo-brief" >> $GITHUB_STEP_SUMMARY
+
+  test-dns-intel:
+    name: DNS Intel MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/dns-intel
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s dns-intel -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## DNS Intel MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/dns-intel" >> $GITHUB_STEP_SUMMARY
+
+  test-web-stack-scan:
+    name: Web Stack Scan MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/web-stack-scan
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s web-stack-scan -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Web Stack Scan MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/web-stack-scan" >> $GITHUB_STEP_SUMMARY
+
+  test-osm-tools:
+    name: OSM Tools MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/osm-tools
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s osm-tools -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## OSM Tools MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/osm-tools" >> $GITHUB_STEP_SUMMARY
+
+  test-image-forensics:
+    name: Image Forensics MCP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Test dedalus/image-forensics
+        env:
+          DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
+        run: npm test -- -s image-forensics -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Image Forensics MCP" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** dedalus/image-forensics" >> $GITHUB_STEP_SUMMARY
+
   summary:
     name: Test Summary
     runs-on: ubuntu-latest
-    needs: [test-brave-search, test-marketplace-crawler-ts, test-marketplace-crawler-py]
+    needs:
+      - test-brave-search
+      - test-marketplace-crawler-ts
+      - test-marketplace-crawler-py
+      - test-sitemap-scout
+      - test-webpage-extract
+      - test-pdf-parse
+      - test-openapi-generate
+      - test-json-validate
+      - test-osv-audit
+      - test-sbom-tools
+      - test-license-check
+      - test-package-intel
+      - test-git-repo-brief
+      - test-dns-intel
+      - test-web-stack-scan
+      - test-osm-tools
+      - test-image-forensics
     if: always()
     steps:
       - name: Check results
@@ -101,3 +440,17 @@ jobs:
           echo "| Brave Search | ${{ needs.test-brave-search.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Marketplace Crawler (TS) | ${{ needs.test-marketplace-crawler-ts.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Marketplace Crawler (Python) | ${{ needs.test-marketplace-crawler-py.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Sitemap Scout | ${{ needs.test-sitemap-scout.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Webpage Extract | ${{ needs.test-webpage-extract.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| PDF Parse | ${{ needs.test-pdf-parse.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| OpenAPI Generate | ${{ needs.test-openapi-generate.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| JSON Validate | ${{ needs.test-json-validate.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| OSV Audit | ${{ needs.test-osv-audit.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| SBOM Tools | ${{ needs.test-sbom-tools.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| License Check | ${{ needs.test-license-check.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Package Intel | ${{ needs.test-package-intel.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Git Repo Brief | ${{ needs.test-git-repo-brief.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| DNS Intel | ${{ needs.test-dns-intel.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Web Stack Scan | ${{ needs.test-web-stack-scan.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| OSM Tools | ${{ needs.test-osm-tools.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Image Forensics | ${{ needs.test-image-forensics.result == 'success' && '✅ Pass' || '❌ Fail' }} |" >> $GITHUB_STEP_SUMMARY
