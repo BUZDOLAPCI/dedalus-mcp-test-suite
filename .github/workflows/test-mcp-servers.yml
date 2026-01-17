@@ -98,7 +98,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/sitemap-scout
+      - name: Test meanerbeaver/sitemap-scout
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s sitemap-scout -v
@@ -107,7 +107,7 @@ jobs:
         if: always()
         run: |
           echo "## Sitemap Scout MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/sitemap-scout" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/sitemap-scout" >> $GITHUB_STEP_SUMMARY
 
   test-webpage-extract:
     name: Webpage Extract MCP
@@ -121,7 +121,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/webpage-extract
+      - name: Test meanerbeaver/webpage-extract
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s webpage-extract -v
@@ -130,7 +130,7 @@ jobs:
         if: always()
         run: |
           echo "## Webpage Extract MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/webpage-extract" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/webpage-extract" >> $GITHUB_STEP_SUMMARY
 
   test-pdf-parse:
     name: PDF Parse MCP
@@ -144,7 +144,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/pdf-parse
+      - name: Test meanerbeaver/pdf-parse
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s pdf-parse -v
@@ -153,7 +153,7 @@ jobs:
         if: always()
         run: |
           echo "## PDF Parse MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/pdf-parse" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/pdf-parse" >> $GITHUB_STEP_SUMMARY
 
   test-openapi-generate:
     name: OpenAPI Generate MCP
@@ -167,7 +167,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/openapi-generate
+      - name: Test meanerbeaver/openapi-generate
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s openapi-generate -v
@@ -176,7 +176,7 @@ jobs:
         if: always()
         run: |
           echo "## OpenAPI Generate MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/openapi-generate" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/openapi-generate" >> $GITHUB_STEP_SUMMARY
 
   test-json-validate:
     name: JSON Validate MCP
@@ -190,7 +190,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/json-validate
+      - name: Test meanerbeaver/json-validate
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s json-validate -v
@@ -199,7 +199,7 @@ jobs:
         if: always()
         run: |
           echo "## JSON Validate MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/json-validate" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/json-validate" >> $GITHUB_STEP_SUMMARY
 
   test-osv-audit:
     name: OSV Audit MCP
@@ -213,7 +213,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/osv-audit
+      - name: Test meanerbeaver/osv-audit
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s osv-audit -v
@@ -222,7 +222,7 @@ jobs:
         if: always()
         run: |
           echo "## OSV Audit MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/osv-audit" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/osv-audit" >> $GITHUB_STEP_SUMMARY
 
   test-sbom-tools:
     name: SBOM Tools MCP
@@ -236,7 +236,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/sbom-tools
+      - name: Test meanerbeaver/sbom-tools
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s sbom-tools -v
@@ -245,7 +245,7 @@ jobs:
         if: always()
         run: |
           echo "## SBOM Tools MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/sbom-tools" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/sbom-tools" >> $GITHUB_STEP_SUMMARY
 
   test-license-check:
     name: License Check MCP
@@ -259,7 +259,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/license-check
+      - name: Test meanerbeaver/license-check
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s license-check -v
@@ -268,7 +268,7 @@ jobs:
         if: always()
         run: |
           echo "## License Check MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/license-check" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/license-check" >> $GITHUB_STEP_SUMMARY
 
   test-package-intel:
     name: Package Intel MCP
@@ -282,7 +282,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/package-intel
+      - name: Test meanerbeaver/package-intel
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s package-intel -v
@@ -291,7 +291,7 @@ jobs:
         if: always()
         run: |
           echo "## Package Intel MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/package-intel" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/package-intel" >> $GITHUB_STEP_SUMMARY
 
   test-git-repo-brief:
     name: Git Repo Brief MCP
@@ -305,7 +305,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/git-repo-brief
+      - name: Test meanerbeaver/git-repo-brief
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s git-repo-brief -v
@@ -314,7 +314,7 @@ jobs:
         if: always()
         run: |
           echo "## Git Repo Brief MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/git-repo-brief" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/git-repo-brief" >> $GITHUB_STEP_SUMMARY
 
   test-dns-intel:
     name: DNS Intel MCP
@@ -328,7 +328,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/dns-intel
+      - name: Test meanerbeaver/dns-intel
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s dns-intel -v
@@ -337,7 +337,7 @@ jobs:
         if: always()
         run: |
           echo "## DNS Intel MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/dns-intel" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/dns-intel" >> $GITHUB_STEP_SUMMARY
 
   test-web-stack-scan:
     name: Web Stack Scan MCP
@@ -351,7 +351,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/web-stack-scan
+      - name: Test meanerbeaver/web-stack-scan
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s web-stack-scan -v
@@ -360,7 +360,7 @@ jobs:
         if: always()
         run: |
           echo "## Web Stack Scan MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/web-stack-scan" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/web-stack-scan" >> $GITHUB_STEP_SUMMARY
 
   test-osm-tools:
     name: OSM Tools MCP
@@ -374,7 +374,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/osm-tools
+      - name: Test meanerbeaver/osm-tools
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s osm-tools -v
@@ -383,7 +383,7 @@ jobs:
         if: always()
         run: |
           echo "## OSM Tools MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/osm-tools" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/osm-tools" >> $GITHUB_STEP_SUMMARY
 
   test-image-forensics:
     name: Image Forensics MCP
@@ -397,7 +397,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Test dedalus/image-forensics
+      - name: Test meanerbeaver/image-forensics
         env:
           DEDALUS_API_KEY: ${{ secrets.DEDALUS_API_KEY }}
         run: npm test -- -s image-forensics -v
@@ -406,7 +406,7 @@ jobs:
         if: always()
         run: |
           echo "## Image Forensics MCP" >> $GITHUB_STEP_SUMMARY
-          echo "**Server:** dedalus/image-forensics" >> $GITHUB_STEP_SUMMARY
+          echo "**Server:** meanerbeaver/image-forensics" >> $GITHUB_STEP_SUMMARY
 
   summary:
     name: Test Summary

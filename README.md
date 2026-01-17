@@ -101,20 +101,20 @@ Exit code is `0` if all tests pass, `1` if any fail.
 - `meanerbeaver/dedalus-marketplace-crawler` - Python marketplace crawler
 
 ### Dedalus MCP Suite (14 servers)
-- `dedalus/sitemap-scout` - Discover and enumerate sitemaps
-- `dedalus/webpage-extract` - Extract readable content from webpages
-- `dedalus/pdf-parse` - Parse PDFs into text and structure
-- `dedalus/openapi-generate` - Parse OpenAPI specs and generate MCP tools
-- `dedalus/json-validate` - Validate and repair JSON against schemas
-- `dedalus/osv-audit` - Query OSV for dependency vulnerabilities
-- `dedalus/sbom-tools` - Create and manage SBOMs
-- `dedalus/license-check` - Detect and check license compatibility
-- `dedalus/package-intel` - Query package registry metadata
-- `dedalus/git-repo-brief` - Generate briefs for GitHub repos
-- `dedalus/dns-intel` - Domain intel via RDAP, DNS, and CT logs
-- `dedalus/web-stack-scan` - Fingerprint website tech stacks
-- `dedalus/osm-tools` - OpenStreetMap geocoding, POI, and routing
-- `dedalus/image-forensics` - Image metadata and forensics analysis
+- `meanerbeaver/sitemap-scout` - Discover and enumerate sitemaps
+- `meanerbeaver/webpage-extract` - Extract readable content from webpages
+- `meanerbeaver/pdf-parse` - Parse PDFs into text and structure
+- `meanerbeaver/openapi-generate` - Parse OpenAPI specs and generate MCP tools
+- `meanerbeaver/json-validate` - Validate and repair JSON against schemas
+- `meanerbeaver/osv-audit` - Query OSV for dependency vulnerabilities
+- `meanerbeaver/sbom-tools` - Create and manage SBOMs
+- `meanerbeaver/license-check` - Detect and check license compatibility
+- `meanerbeaver/package-intel` - Query package registry metadata
+- `meanerbeaver/git-repo-brief` - Generate briefs for GitHub repos
+- `meanerbeaver/dns-intel` - Domain intel via RDAP, DNS, and CT logs
+- `meanerbeaver/web-stack-scan` - Fingerprint website tech stacks
+- `meanerbeaver/osm-tools` - OpenStreetMap geocoding, POI, and routing
+- `meanerbeaver/image-forensics` - Image metadata and forensics analysis
 
 ## Development
 
